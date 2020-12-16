@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ishwarya - ArtsML2020</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+
+				<!-- One -->
+					<!-- <section class="banner style1 orient-left content-align-center fullscreen onload-image-fade-in onload-content-fade-right">
+						<div class="content"> -->
+							<!-- <div style="text-align: center">
+								<img src="images/MAS02-2_square.jpg" alt="Ishwarya" style="text-align: center; width: 30%; border-radius: 50%"/>
+							</div> -->
+<!-- 							<h1>Ishwarya Ananthabhotla</h1>
+							<p class="major">Electrical Engineer and Computer Scientist, Musician and Audio Enthusiast. </p>
+ -->							<!-- <ul class="actions vertical" style="text-align: center;"> -->
+							<!-- <div style="text-align: center">
+								<a href="#about" class="button big wide smooth-scroll-middle">About Me</a>
+								<a href="#projects" class="button big wide smooth-scroll-top">Projects</a>
+								<a href="#at" class="button big wide smooth-scroll-middle">AT @ MIT</a>
+								<li><a href="#teaching" class="button big wide smooth-scroll-middle">Teaching</a></li>
+								<a href="#music" class="button big wide smooth-scroll-middle">Music & Writing</a>
+								<a href="#radio" class="button big wide smooth-scroll-middle">DJ-ing @ WMBR</a>
+							</div>
+							 --><!-- </ul> -->
+						<!-- </div> -->
+						<!-- <div class="image" >
+							<img src="images/MAS02-2.jpg" alt="" />
+						</div> -->
+					<!-- </section> -->
+
+				<!-- Two -->
+					<section class="banner style1 orient-left content-align-center">
+						<div class="content"> 
+							<h1>Head in my Clouds</h1>
+						</div>
+
+					</section>
+
+
+				<!-- Two -->
+					<section class="wrapper style1 align-left" id="intro">
+						<div class="inner">
+							<h2>The Sounds that Shape Us</h2>
+							<p>I've always believed that each one of us has our own sonic signature; that a critical examination of the enacted and sub-conscious soundscapes that scaffold our daily lives would surface the experiences that sum to our personalities -- the scenes of our childhoods, the societal hats we rotate through, the relationships that we hold dear. 
+
+							</br></br>
+
+							In this semester's Arts@ML class taught by Prof. Tod Machover, I've tried to consider these ideas in greater detail.  And while my dissertation work has entailed attempting to deconstruct this idea across large groups of people constrained by shared notions of sound perception, this class and its wonderful participants have pushed me to pause, and to reflect experientially on the sounds with which I have the most unassuming yet intimate relationship -- my own.
+
+							</p>
+						</div>
+					</section>
+
+				<!-- Three -->
+					<section class="wrapper style1 align-left" id="tech">
+						<div class="inner">
+							<h2>My Final Project: The Beginning of Something</h2>
+							<p>While my final project started with a lofty aim to study the relationship between global circumstances and user listening preferences, Prof. Tod, the TAs, and the class nudged me to treat my own listening choices as a micro-universe that might inspire an experience designed to facilitate reflection and growth. Armed with data representing my listening history from Spotify over the past 1 year, I began to build a set of tools to slice and dice the data.  I decided to dive deeper into the simple network representation shown below, as I thought it had the potential to tell a story.
+
+							</br></br>
+
+							To design this visual, I considered my listening history for a single month (any more time and the plot was much too dense to explore), and computed an affinity matrix where the distance between every pair of tracks was given by the combination of (1) the delta in time of play over the course of a day; and (2) the rank order-weighted intersection score of the tracks' related/ recommended artists.  I used a simple spectral clustering approach (dimensionality reduction by computing the eigenvector of the laplacian matrix and projecting, followed by K-Means) to separate out groups of "related" tracks in time of play/ related artist space, and colored each node by its degree in the affinity matrix.  One example result is shown below -- feel free to click around!
+							 </p>
+
+							 <iframe src="media/all-colors.html" width="100%" height="820" scrolling="no"></iframe>
+
+							 A few little insights that made me smile:
+
+							 <ul>
+							  <li>I'm known for attaching genres of music to activities and times of day (Carnatic music while I fold my laundry so I can focus on the detail, black-and-white-era film songs while I cook dinner, because it reminds me of family;).  Apparently, the data agrees.</li>
+							  <li>I've always thought that I go through phases of listening to certain traditions of music that are different from the ones I grew up with.  But a single month's snapshot is pretty diverse on its own -- there are at least five languages represented (Hindi/ Urdu, Telugu, Tamil, Punjabi, Malayalam) and at least six broad genres of music (Carnatic, Hindustani, Ghazal, Qawwali, Folk, Film, Classical "Fusion", etc)</li>
+							  <li>There is a pretty sizeable "mainstream Bollywood" representation (akin to American pop music), larger than I expected.  It's rarely a choice I make when listening to music alone, and has always been driven by sharing space with family and friends.</li>
+							</ul>
+
+
+						</div>
+
+					</section>
+
+				<!-- Three -->
+					<section class="wrapper style1 align-left" id="demo">
+						<div class="inner">
+							<h2>Turning Sights to Sound</h2>
+							<p>As a demo, I thought I'd attempt a way to share a piece of my personality embedded in my music with my peers in the class.  I began by drawing a contour that moved through the "clouds", and adapted some tools that I have been building for my research work to compute audio feature curves for the tracks adjacent to the contour.  Using this to help me find regions of the tracks that might be related musically, I manually assembled a short passage to accompany the contour.  An audio sample of a few distinct listening "clouds" and the contour passage can be heard in the demo:</p>
+							
+							</br></br>
+
+							<video width="100%"  controls>
+							  <source src="media/head_in_my_clouds_v2.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+							</video>
+
+							<!-- <iframe width="100%" height="750" src="https://www.youtube.com/embed/lPKpj1U1HIk" frameborder="0" ></iframe> -->
+							<!-- <iframe src="https://drive.google.com/file/d/1K9P7M-_0GGbLBMwqbHRoQhbh--pnpRxr/preview" width="640" height="480"></iframe> -->
+
+							</br></br>
+
+							There are so many ways in which this project could go further, and it is very much a first experiment with sizeable Wizard-of-Oz-ary.  Apart from building some front-end skills, putting this demo together gave me a chance to spend time with my music in an intellectual yet nostalgic way.  A comment from another student summed it up pretty well, I think.
+
+							</br></br> 
+
+							"It made me miss home."
+						</div>
+					</section>
+
+				<!-- Three -->
+					<section class="wrapper style1 align-left" id="demo">
+						<div class="inner">
+							<h2>Other Explorations</h2>
+							<p>Here are a few other projects I worked on as a part of the class, for the sake of posterity.</p>
+
+							<p>A 1-minute sound piece that explores the rich and colorful boundaries that the Indian-American experience often entails traversing:</p>
+
+							<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/894228442%3Fsecret_token%3Ds-U56fFcyHvYf&color=%23373535&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/ishwarya-ananthabhotla" title="Ishwarya Ananthabhotla" target="_blank" style="color: #cccccc; text-decoration: none;">Ishwarya Ananthabhotla</a> · <a href="https://soundcloud.com/ishwarya-ananthabhotla/crossroads/s-U56fFcyHvYf" title="Crossroads" target="_blank" style="color: #cccccc; text-decoration: none;">Crossroads</a></div>
+
+
+							<!-- Copy and Paste Me -->
+							<!-- <div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
+							  <iframe
+							    src="https://glitch.com/embed/#!/embed/summary-card?path=views/index.html&previewSize=100"
+							    title="summary-card on Glitch"
+							    allow="geolocation; microphone; camera; midi; vr; encrypted-media"
+							    style="height: 100%; width: 100%; border: 0;">
+							  </iframe>
+							</div> -->
+							</br></br> 
+
+							<p>A demo of my Audio Summarization project applied to sounds from all over the world; depending on how you "look" at it, maybe our sounds are more or less similar than we might think. Click the image for a demo.</p>
+
+							<a href="https://summary-card.glitch.me/"><img src="images/summary_card.png" alt="summary-card" width="100%"></a>
+
+
+						</div>
+					</section>
+
+					<section class="wrapper style1 align-center" id="demo">
+						<div class="inner">
+							<p>To Prof. Tod and all of the talented and creative class participants, thank you for such an inspiring semester!</p>
+
+
+						</div>
+					</section>
+
+
+				
+				<!-- Footer -->
+					<footer class="wrapper style1 align-center">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="https://www.facebook.com/ishwarya.ananthabhotla" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="mailto:ishwarya@media.mit.edu" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p>&copy; I.Ananthabhotla. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
