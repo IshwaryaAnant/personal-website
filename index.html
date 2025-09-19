@@ -10,8 +10,173 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* Publication styling */
+			.publication-entry {
+				margin-bottom: 15px;
+				padding: 10px 0;
+				border-bottom: 1px solid #eee;
+			}
+			
+			.publication-title {
+				font-weight: bold;
+				margin-bottom: 8px;
+				display: inline;
+			}
+			
+			.publication-authors {
+				color: #666;
+				margin-bottom: 5px;
+			}
+			
+			.venue-tag {
+				display: inline-block;
+				background: #e8f2ff;
+				color: #4a90e2;
+				border: 1px solid #b3d9ff;
+				padding: 4px 12px;
+				border-radius: 20px;
+				font-size: 12px;
+				font-weight: 600;
+				margin-right: 10px;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+			}
+			
+			.paper-link {
+				font-size: 14px;
+				color: #d64545;
+				text-decoration: none;
+				margin-left: 5px;
+			}
+			
+			.paper-link:hover {
+				color: #b23333;
+				text-decoration: underline;
+			}
+			
+			.author-highlight {
+				font-weight: bold;
+			}
+
+			.publication-year {
+				color: #d64545;
+				font-weight: bold;
+				margin-right: 8px;
+			}
+			
+			/* Sticky Navigation Bar Styles */
+			.sticky-nav {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				background: rgba(255, 255, 255, 0.95);
+				backdrop-filter: blur(10px);
+				-webkit-backdrop-filter: blur(10px);
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+				z-index: 1000;
+				padding: 15px 0;
+				transition: all 0.3s ease;
+			}
+
+			.sticky-nav.scrolled {
+				background: rgba(255, 255, 255, 0.98);
+				padding: 10px 0;
+			}
+
+			.nav-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.nav-menu {
+				display: flex;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				gap: 40px;
+			}
+
+			.nav-menu li {
+				margin: 0;
+			}
+
+			.nav-menu a {
+				text-decoration: none;
+				color: #333;
+				font-weight: 600;
+				font-size: 16px;
+				padding: 10px 20px;
+				border-radius: 25px;
+				transition: all 0.3s ease;
+				position: relative;
+			}
+
+			.nav-menu a:hover {
+				background: #f0f0f0;
+				color: #4a90e2;
+				transform: translateY(-2px);
+			}
+
+			.nav-menu a.active {
+				background: #4a90e2;
+				color: white;
+			}
+
+			/* Add padding to body to account for fixed nav */
+			body {
+				padding-top: 80px;
+			}
+
+			/* Responsive design */
+			@media (max-width: 768px) {
+				body {
+					padding-top: 70px;
+				}
+				
+				.nav-menu {
+					gap: 20px;
+				}
+				
+				.nav-menu a {
+					font-size: 14px;
+					padding: 8px 15px;
+				}
+				
+				.nav-container {
+					padding: 0 15px;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.nav-menu {
+					gap: 10px;
+				}
+				
+				.nav-menu a {
+					font-size: 12px;
+					padding: 6px 10px;
+				}
+			}
+		</style>
 	</head>
 	<body>
+
+		<!-- Sticky Navigation Bar -->
+		<nav class="sticky-nav" id="stickyNav">
+			<div class="nav-container">
+				<ul class="nav-menu">
+					<li><a href="#about" class="smooth-scroll-middle">About</a></li>
+					<li><a href="#publications" class="smooth-scroll-top">Publications</a></li>
+					<li><a href="#music" class="smooth-scroll-middle">Music, Writing, Radio</a></li>
+				</ul>
+			</div>
+		</nav>
 
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
@@ -23,17 +188,7 @@
 								<img src="images/MAS02-2_square.jpg" alt="Ishwarya" style="text-align: center; width: 30%; border-radius: 50%"/>
 							</div>
 							<h1>Ishwarya Ananthabhotla</h1>
-							<p class="major">Machine Learning and Audio Research Scientist, Musician and Audio Enthusiast. </p>
-							<!-- <ul class="actions vertical" style="text-align: center;"> -->
-							<div style="text-align: center">
-								<a href="#about" class="button big wide smooth-scroll-middle">About Me</a>
-								<!-- <a href="#projects" class="button big wide smooth-scroll-top">Projects</a> -->
-								<a href="#publications" class="button big wide smooth-scroll-top">Publications</a>
-								<a href="#music" class="button big wide smooth-scroll-middle">Music & Writing</a>
-								<a href="#radio" class="button big wide smooth-scroll-middle">Radio Shows</a>
-								<a href="#at" class="button big wide smooth-scroll-middle">Assistive Tech @ MIT</a>
-							</div>
-							<!-- </ul> -->
+							<p class="major">Machine Learning and Audio Research Scientist</p>
 						</div>
 						<!-- <div class="image" >
 							<img src="images/MAS02-2.jpg" alt="" />
@@ -44,8 +199,8 @@
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="about">
 						<div class="content">
 							<h2>About Me</h2>
-							<p>I am currently a Research Scientist on the Meta Reality Labs Research Audio Team. At present, I work on machine learning applied to problems in room acoustics, spatial audio, auditory perception, and behavior and communication understanding in conversations.  More generally, my research interests lie at the intersection of machine learning, signal processing, cognition, and audio.</p>
-							<p>I completed my Bachelors in Electrical Engineering and Computer Science from MIT in 2015, my M.Eng. from MIT in 2016, and my PhD from Prof. Joe Paradiso's Responsive Environments</a> group at the MIT Media Lab in 2021.  My dissertation work entailed exploring methods to build statistical models of how our brains interact with the sounds around us, and translating these models to the auditory interfaces of the future to facilitate more meaningful, compelling experiences.  I was supported by the NSF Graduate Research Fellowship from 2016-2019, and was supported by the 2020 Apple AI/ ML Fellowship through the end of my PhD. Outside of research, I enjoy singing, playing instruments, and writing; while at MIT, I also enjoyed DJ-ing at the WMBR radio station.</p>
+							<p>I am a Research Scientist on the Meta Reality Labs Research Audio Team. I work on machine learning applied to problems in room acoustics, spatial audio, auditory perception, and behavior and communication understanding in conversations.  More generally, my research interests lie at the intersection of machine learning, signal processing, cognition, and audio.</p>
+							<p>I completed my Bachelors from MIT in 2015, my Masters from MIT in 2016, and my PhD from the MIT Media Lab in 2021, advised by Prof. Joe Paradiso.  I was supported by the NSF Graduate Research Fellowship (2016-2019) and the Apple AI/ ML Fellowship (2020-2022). Outside of research, I enjoy singing, playing instruments, and writing; while at MIT, I also enjoyed DJ-ing at the WMBR radio station.</p>
 
 							<!-- <a href="./pubs/CV_May_2021.pdf" class="button big wide smooth-scroll-middle">CV [Last Updated: March 2021]</a> -->
 						</div>
@@ -61,52 +216,159 @@
 						<div class="content">
 							<h2>Publications</h2>
 
-							<p><b><a href="https://ieeexplore.ieee.org/abstract/document/10447683/"> Self‑motion as Supervision for Egocentric Audiovisual Localization.</a></b> </br>Calvin Murdock, Ishwarya Ananthabhotla, Hao Lu, Vamsi Krishna Ithapu. ICASSP, 2024.</p>
+							
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2025</span>Towards Perception-Informed Latent HRTF Representations</span>
+								<div class="publication-authors">You Zhang, Andrew Francl, Ruohan Gao, Paul Calamia, Zhiyao Duan, <span class="author-highlight">Ishwarya Ananthabhotla</span></div>
+								<span class="venue-tag">WASPAA</span><a href="https://arxiv.org/pdf/2507.02815" class="paper-link">[paper]</a>
+							</div>
 
-							<p><b><a href="https://arxiv.org/pdf/2408.05364"> Spherical World-Locking for Audio-Visual Localization in Egocentric Videos</a></b> </br>
-							Heeseung Yun, Ruohan Gao, Ishwarya Ananthabhotla, Anurag Kumar, Jacob Donley, Chao Li, Gunhee Kim, Vamsi Krishna Ithapu, Calvin Murdock.  ECCV, 2024.</p>
+							
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2025</span>Novel View Acoustic Parameter Estimation</span>
+								<div class="publication-authors">Ricardo Falcon-Perez, Ruohan Gao, Gregor Mueckl, Sebastia V Amengual Gari, <span class="author-highlight">Ishwarya Ananthabhotla</span></div>
+								<span class="venue-tag">WASPAA</span><a href="#" class="paper-link">[paper]</a>
+							</div>
 
-							<p><b><a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Jia_The_Audio-Visual_Conversational_Graph_From_an_Egocentric-Exocentric_Perspective_CVPR_2024_paper.pdf"> The Audio-Visual Conversational Graph: From an Egocentric-Exocentric Perspective.</a></b> </br>
-							Wenqi Jia,  Miao Liu,  Hao Jiang,  Ishwarya Ananthabhotla,
-							James M. Rehg,  Vamsi Krishna Ithapu,  Ruohan Gao.  CVPR, 2024.</p>
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2025</span>SoundVista: Novel-View Ambient Sound Synthesis via Visual-Acoustic Binding</span>
+								<div class="publication-authors">Mingfei Chen, Israel D Gebru, <span class="author-highlight">Ishwarya Ananthabhotla</span>, Christian Richardt, Dejan Markovic, Jake Sandakly, Steven Krenn, Todd Keebler, Eli Shlizerman, Alexander Richard</div>
+								<span class="venue-tag">CVPR</span><a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Chen_SoundVista_Novel-View_Ambient_Sound_Synthesis_via_Visual-Acoustic_Binding_CVPR_2025_paper.pdf" class="paper-link">[paper]</a>
+							</div>
 
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2025</span>Hearing Anywhere in Any Environment</span>
+								<div class="publication-authors">Xiulong Liu, Anurag Kumar, Paul Calamia, Sebastia V Amengual, Calvin Murdock, <span class="author-highlight">Ishwarya Ananthabhotla</span>, Philip Robinson, Eli Shlizerman, Vamsi Krishna Ithapu, Ruohan Gao</div>
+								<span class="venue-tag">CVPR</span><a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Liu_Hearing_Anywhere_in_Any_Environment_CVPR_2025_paper.pdf" class="paper-link">[paper]</a>
+							</div>
 
-							<p><b><a href="https://arxiv.org/pdf/2403.07579"> On HRTF Notch Frequency Prediction Using Anthropometric Features and Neural Networks.</a></b> </br>Lior Arbel, Ishwarya Ananthabhotla, Zamir Ben‑Hur, David Lou Alon, Boaz Rafaely. ICASSP, 2024.</p>
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2025</span>EgoAdapt: Adaptive Multisensory Distillation and Policy Learning for Efficient Egocentric Perception</span>
+								<div class="publication-authors">Sanjoy Chowdhury, Subrata Biswas, Sayan Nag, Tushar Nagarajan, Calvin Murdock, <span class="author-highlight">Ishwarya Ananthabhotla</span>, Yijun Qian, Vamsi Krishna Ithapu, Dinesh Manocha, Ruohan Gao</div>
+								<span class="venue-tag">ICCV</span><a href="https://arxiv.org/pdf/2506.21080" class="paper-link">[paper]</a>
+							</div>
 
-							<p><b><a href="[PDF] from arxiv.org"> Hearing Loss Detection from Facial Expressions in One‑on‑one Conversations.</a></b> </br>Yufeng Yin, Ishwarya Ananthabhotla, Vamsi Krishna Ithapu, Stavros Petridis, Yu‑Hsiang Wu, Christi Miller. ICASSP, 2024.</p>
-
-							<p><b><a href="https://ieeexplore.ieee.org/abstract/document/10289365">A Two‑Dimensional Threshold Test for Reverberation Time and Direct‑to‑Reverberant Ratio.</a></b> </br>Nils Meyer‑Kahlen, Sebastià Amengual Garí, Ishwarya Ananthabhotla, Paul Calamia. I3DA, 2023.</p>
-
-							<p><b><a href="https://acris.aalto.fi/ws/portalfiles/portal/122799079/2023_AutonomousMeasRRT_FA_Goetz.pdf">Autonomous Room Acoustic Measurements Using Rapidly‑Exploring Random Trees and Gaussian Processes.</a></b> </br>Georg Gotz, Ishwarya Ananthabhotla, Sebastià Amengual Garí, Paul Calamia. Forum Acusticum, 2023.</p>
-
-							<p> <b><a href="https://arxiv.org/pdf/2211.04473.pdf">Towards Improved Room Impulse Response Estimation for Speech Recognition.</a></b> </br>Anton Ratnarajah, Ishwarya Ananthabhotla, Vamsi Krishna Ithapu, Pablo Hoffmann, Dinesh Manocha, Paul Calamia. ICASSP, 2023.</p>
-
-
-							<p><b><a href="https://www.aes.org/e-lib/browse.cfm?elib=21850">Towards the Prediction of Perceived Room Acoustical Similarity.</a></b> </br>Hannes Helmholz, Ishwarya Ananthabhotla, Paul Calamia, Sebastià Amengual Garí. AES AVAR, 2022. Best Student Paper.</p>
-
-							<p> <b><a href="https://docs.google.com/viewer?url=github.com/NeuripsCreativityWorkshop/2021/raw/main/accepted/ncw_19.pdf">Towards “Gestalt” Computation in Sound.</a></b> </br>Ishwarya Ananthabhotla, David B. Ramsay, Joseph A. Paradiso. NeurIPS Workshop on Machine Learning for Creativity and Design, 2022.</p>
-
-							<p> <b><a href="https://dl.acm.org/doi/abs/10.1145/3478384.3478405">Modifying Causal Uncertainty in Sound Objects.</a></b> </br>Tal Boger, Ishwarya Ananthabhotla, Joseph A. Paradiso. ACM Audio Mostly, 2021.</p>
-
-							<p><b><a href="https://www.computer.org/csdl/magazine/pc/5555/01/09353971/1r9Ys8mqUDu">Cognitive Audio Interfaces: Mediating Sonic Information with an Understanding of How We Hear.</a></b> </br>Ishwarya Ananthabhotla, David B. Ramsay, Clement Duhart, Joseph A. Paradiso. IEEE Pervasive Computing, 2021.</p>
-
-							<p><b><a href="https://asa.scitation.org/doi/full/10.1121/10.0003983">A Framework for Designing Head‑related Transfer Function (HRTF) Distance Metrics that Capture Localization Perception.</a></b> </br>Ishwarya Ananthabhotla, Vamsi Krishna Ithapu, W. Owen Brimijoin. JASA Express Letters, 2021.</p>
-
-							<p><b><a href="pubs/IJCNN_20.pdf">Using a Neural Network Codec Approximation Loss to Improve Source Separation Performance in Limited Capacity Networks.</a></b> </br>Ishwarya Ananthabhotla, Sebastian Ewert, Joseph A. Paradiso. IJCNN Special Session on Deep Neural Audio Processing, 2020.</p>
-
-							<p><b><a href="https://resenv.media.mit.edu/pubs/papers/2019-07-ACMM-Ishwarya-Loss.pdf">Towards a Perceptual Loss: Using a Neural Network Codec Approximation as a Loss for Generative Audio Models</a></b>. </br>Ishwarya Ananthabhotla, Sebastian Ewert, Joseph A. Paradiso. ACM Multimedia, 2019.</p>
-
-							<p><b><a href="https://resenv.media.mit.edu/pubs/papers/2019-01-AES-AudioMemory.pdf">The Intrinsic Memorability of Everyday Sounds</a></b>. </br>Ishwarya Ananthabhotla*, David B. Ramsay*, Joseph A. Paradiso. AES Immersive and Interactive Audio, 2019.</p>
-
-							<p><b><a href="https://resenv.media.mit.edu/pubs/papers/2019-02-ICASSP-Dataset.pdf">HCU400: An Annotated Dataset for Exploring Aural Phenomenology through Causal Uncertainty.</a></b> </br>Ishwarya Ananthabhotla*, David B. Ramsay*, Joseph A. Paradiso. ICASSP 2019.</p>
-
-							<p><b><a href="https://resenv.media.mit.edu/pubs/papers/SoundSignaling-IA.pdf">SoundSignaling: Realtime, Stylistic Modification of a Personal Music Corpus for Information Delivery</a></b>. </br>Ishwarya Ananthabhotla and Joseph A. Paradiso. ACM IMWUT, 2018.</p>
-
-							<p><b><a href="https://resenv.media.mit.edu/pubs/papers/VS_ishwarya.pdf">VisualSoundtrack: An Approach to Style Transfer in the Context of Soundtrack Composition</a></b>. </br>Ishwarya Ananthabhotla, Joseph A. Paradiso. International Computer Music Conference (ICMC), 2017.</p>
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2025</span>Spatial Storybook: Language Model-driven Audiobook Spatialization</span>
+								<div class="publication-authors"><span class="author-highlight">Ishwarya Ananthabhotla</span>, W Owen Brimijoin</div>
+								<span class="venue-tag">SIGGRAPH Spatial Storytelling</span><a href="https://dl.acm.org/doi/10.1145/3721244.3742453" class="paper-link">[paper]</a>
+							</div>
 
 
 
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2024</span>Self‑motion as Supervision for Egocentric Audiovisual Localization</span>
+								<div class="publication-authors">Calvin Murdock, <span class="author-highlight">Ishwarya Ananthabhotla</span>, Hao Lu, Vamsi Krishna Ithapu</div>
+								<span class="venue-tag">ICASSP</span><a href="https://ieeexplore.ieee.org/abstract/document/10447683/" class="paper-link">[paper]</a>
+							</div>
 
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2024</span>Spherical World-Locking for Audio-Visual Localization in Egocentric Videos</span>
+								<div class="publication-authors">Heeseung Yun, Ruohan Gao, <span class="author-highlight">Ishwarya Ananthabhotla</span>, Anurag Kumar, Jacob Donley, Chao Li, Gunhee Kim, Vamsi Krishna Ithapu, Calvin Murdock</div>
+								<span class="venue-tag">ECCV</span><a href="https://arxiv.org/pdf/2408.05364" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2024</span>The Audio-Visual Conversational Graph: From an Egocentric-Exocentric Perspective</span>
+								<div class="publication-authors">Wenqi Jia, Miao Liu, Hao Jiang, <span class="author-highlight">Ishwarya Ananthabhotla</span>, James M. Rehg, Vamsi Krishna Ithapu, Ruohan Gao</div>
+								<span class="venue-tag">CVPR</span><a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Jia_The_Audio-Visual_Conversational_Graph_From_an_Egocentric-Exocentric_Perspective_CVPR_2024_paper.pdf" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2024</span>On HRTF Notch Frequency Prediction Using Anthropometric Features and Neural Networks</span>
+								<div class="publication-authors">Lior Arbel, <span class="author-highlight">Ishwarya Ananthabhotla</span>, Zamir Ben‑Hur, David Lou Alon, Boaz Rafaely</div>
+								<span class="venue-tag">ICASSP</span><a href="https://arxiv.org/pdf/2403.07579" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2024</span>Hearing Loss Detection from Facial Expressions in One‑on‑one Conversations</span>
+								<div class="publication-authors">Yufeng Yin, <span class="author-highlight">Ishwarya Ananthabhotla</span>, Vamsi Krishna Ithapu, Stavros Petridis, Yu‑Hsiang Wu, Christi Miller</div>
+								<span class="venue-tag">ICASSP</span><a href="https://arxiv.org/abs/2401.08972" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2023</span>A Two‑Dimensional Threshold Test for Reverberation Time and Direct‑to‑Reverberant Ratio</span>
+								<div class="publication-authors">Nils Meyer‑Kahlen, Sebastià Amengual Garí, <span class="author-highlight">Ishwarya Ananthabhotla</span>, Paul Calamia</div>
+								<span class="venue-tag">I3DA</span><a href="https://ieeexplore.ieee.org/abstract/document/10289365" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2023</span>Autonomous Room Acoustic Measurements Using Rapidly‑Exploring Random Trees and Gaussian Processes</span>
+								<div class="publication-authors">Georg Gotz, <span class="author-highlight">Ishwarya Ananthabhotla</span>, Sebastià Amengual Garí, Paul Calamia</div>
+								<span class="venue-tag">Forum Acusticum</span><a href="https://acris.aalto.fi/ws/portalfiles/portal/122799079/2023_AutonomousMeasRRT_FA_Goetz.pdf" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2023</span>Towards Improved Room Impulse Response Estimation for Speech Recognition</span>
+								<div class="publication-authors">Anton Ratnarajah, <span class="author-highlight">Ishwarya Ananthabhotla</span>, Vamsi Krishna Ithapu, Pablo Hoffmann, Dinesh Manocha, Paul Calamia</div>
+								<span class="venue-tag">ICASSP</span><a href="https://arxiv.org/pdf/2211.04473.pdf" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2022</span>Towards the Prediction of Perceived Room Acoustical Similarity</span> <em>(Best Student Paper)</em>
+								<div class="publication-authors">Hannes Helmholz, <span class="author-highlight">Ishwarya Ananthabhotla</span>, Paul Calamia, Sebastià Amengual Garí</div>
+								<span class="venue-tag">AES AVAR</span><a href="https://www.aes.org/e-lib/browse.cfm?elib=21850" class="paper-link">[paper]</a> 
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2022</span>Towards "Gestalt" Computation in Sound</span>
+								<div class="publication-authors"><span class="author-highlight">Ishwarya Ananthabhotla</span>, David B. Ramsay, Joseph A. Paradiso</div>
+								<span class="venue-tag">NeurIPS Workshop</span><a href="https://docs.google.com/viewer?url=github.com/NeuripsCreativityWorkshop/2021/raw/main/accepted/ncw_19.pdf" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2021</span>Modifying Causal Uncertainty in Sound Objects</span>
+								<div class="publication-authors">Tal Boger, <span class="author-highlight">Ishwarya Ananthabhotla</span>, Joseph A. Paradiso</div>
+								<span class="venue-tag">ACM Audio Mostly</span><a href="https://dl.acm.org/doi/abs/10.1145/3478384.3478405" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2021</span>Cognitive Audio Interfaces: Mediating Sonic Information with an Understanding of How We Hear</span>
+								<div class="publication-authors"><span class="author-highlight">Ishwarya Ananthabhotla</span>, David B. Ramsay, Clement Duhart, Joseph A. Paradiso</div>
+								<span class="venue-tag">IEEE Pervasive Computing</span><a href="https://www.computer.org/csdl/magazine/pc/5555/01/09353971/1r9Ys8mqUDu" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2021</span>A Framework for Designing Head‑related Transfer Function (HRTF) Distance Metrics that Capture Localization Perception</span>
+								<div class="publication-authors"><span class="author-highlight">Ishwarya Ananthabhotla</span>, Vamsi Krishna Ithapu, W. Owen Brimijoin</div>
+								<span class="venue-tag">JASA Express Letters</span><a href="https://asa.scitation.org/doi/full/10.1121/10.0003983" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2020</span>Using a Neural Network Codec Approximation Loss to Improve Source Separation Performance in Limited Capacity Networks</span>
+								<div class="publication-authors"><span class="author-highlight">Ishwarya Ananthabhotla</span>, Sebastian Ewert, Joseph A. Paradiso</div>
+								<span class="venue-tag">IJCNN</span><a href="pubs/IJCNN_20.pdf" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2019</span>Towards a Perceptual Loss: Using a Neural Network Codec Approximation as a Loss for Generative Audio Models</span>
+								<div class="publication-authors"><span class="author-highlight">Ishwarya Ananthabhotla</span>, Sebastian Ewert, Joseph A. Paradiso</div>
+								<span class="venue-tag">ACM Multimedia</span><a href="https://resenv.media.mit.edu/pubs/papers/2019-07-ACMM-Ishwarya-Loss.pdf" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2019</span>The Intrinsic Memorability of Everyday Sounds</span>
+								<div class="publication-authors"><span class="author-highlight">Ishwarya Ananthabhotla</span>*, David B. Ramsay*, Joseph A. Paradiso</div>
+								<span class="venue-tag">AES Immersive and Interactive Audio</span><a href="https://resenv.media.mit.edu/pubs/papers/2019-01-AES-AudioMemory.pdf" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2019</span>HCU400: An Annotated Dataset for Exploring Aural Phenomenology through Causal Uncertainty</span>
+								<div class="publication-authors"><span class="author-highlight">Ishwarya Ananthabhotla</span>*, David B. Ramsay*, Joseph A. Paradiso</div>
+								<span class="venue-tag">ICASSP</span><a href="https://resenv.media.mit.edu/pubs/papers/2019-02-ICASSP-Dataset.pdf" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2018</span>SoundSignaling: Realtime, Stylistic Modification of a Personal Music Corpus for Information Delivery</span>
+								<div class="publication-authors"><span class="author-highlight">Ishwarya Ananthabhotla</span> and Joseph A. Paradiso</div>
+								<span class="venue-tag">ACM IMWUT</span><a href="https://resenv.media.mit.edu/pubs/papers/SoundSignaling-IA.pdf" class="paper-link">[paper]</a>
+							</div>
+
+							<div class="publication-entry">
+								<span class="publication-title"><span class="publication-year">2017</span>VisualSoundtrack: An Approach to Style Transfer in the Context of Soundtrack Composition</span>
+								<div class="publication-authors"><span class="author-highlight">Ishwarya Ananthabhotla</span>, Joseph A. Paradiso</div>
+								<span class="venue-tag">ICMC</span><a href="https://resenv.media.mit.edu/pubs/papers/VS_ishwarya.pdf" class="paper-link">[paper]</a>
+							</div>
 
 							<!-- <a href="./pubs/CV_May_2021.pdf" class="button big wide smooth-scroll-middle">CV [Last Updated: March 2021]</a> -->
 						</div>
@@ -120,78 +382,12 @@
 				<!-- Three -->
 					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="music">
 						<div class="content">
-							<h2>Music & Writing</h2>
-							<!-- <p> <b>Assistive Technology Club/ Hackathon</b> </p> -->
-							<h3>Music</h3>
-							<p> Music is perhaps my biggest passion. I've been learning and singing Carnatic music since I was five or six years old, and I have always been captivated by the artform's expressive nature and lyrical beauty. It has provided me with a sense of comfort, an avenue of relaxation, and a bridge into a past rich with culture, tradition, and faith. I also enjoy singing lighter forms of classical music, and enjoy jamming with friends and family.  Over the years, I've learned to play a variety of instruments including the piano, violin, harmonium, and naal (a cousin of the tabla).  I also enjoy dabbling in song writing, music production, and mixing and mastering in my spare time.
+							<h2>Music, Writing, Radio</h2>
 
-
-							<p>Some performances and recordings across genres: <a href="https://www.youtube.com/watch?v=ltvEgXS2AMg&ab_channel=IshwaryaAnanthabhotla">Sruthi Laya TCD 2014</a>, <a href="https://www.youtube.com/watch?v=813otvGqGqw">MIT C-Show 2016</a>, <a href="https://www.youtube.com/watch?v=SMNMDKv45S4&ab_channel=MITOhms">Someone Like You (Arr.) 2015</a> </p>	
-
-							
-							<h3>Writing</h3>
-							<p>Many of my friends know me as perpetually having my head buried in a journal, scribbling down some thought or other. I've loved writing short stories and poetry since I was in elementary school, and after taking several fantastic creative writing classes here at MIT, I've had the opportunity to refine my writings and grow as an author. Some of my writing was awarded an <a href="https://cmsw.mit.edu/publications/ilona-karmel-writing-prizes/winners/">MIT Karmel Prize</a>, and I've written a few plays that have aired on my WMBR production, "The Daydream Company." </p>
-							
-<!-- 							<div style="text-align: center">
-								<img src="images/concert3-1.JPG" alt="" style="width: 75%"/>
-							</div>
- -->						</div>
-
-						<!-- <div class="image" >
-							<img src="images/concert4.JPG" alt="" />
-						</div>
-						 -->
-					</section>				
-					
-
-				<!-- Four -->
-					<!-- <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="teaching">
-						<div class="content">
-							<h2>Teaching/ Lab Assistantships</h2>
-							<p><b>6.811 - Principles and Practices of AT:</b> Fall 2014, Fall 2015</br>
-							<b>6.115 - Microcomputer Project Laboratory:</b> Spring 2015, Spring 2016</br>
-						</div>
-						<div class="image">
-							<img src="images/Close_up_MIT_FW.png" alt="" />
-						</div>
-					</section> -->
-
-				<!-- Five -->
-
-					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="at">
-						<div class="content">
-							<h2>Assistive Technology Club & Hackathon</h2>
-
-							<p>In my last few years at MIT, Assistive Technologies is a space that has become particularly close to my heart. After being inspired by Professor Seth Teller and his incredible class on designing AT (6.811), I worked closely with a team of students to organize ATHack 2014, MIT's first Assistive Technologies Hackathon! Since then, I have been involved with nine instances of the hackathon, which has continued on as an annual MIT event. The aim of both the class and the hackathon is to bring together "co-designers" in the community who live with disabilities and student engineers to work towards innovative solutions.</p>
-							<!-- <p> Webpage: <a href="http://assistivetech.mit.edu/athack">MIT ATHack</a></br> -->
-							
-							Media: <a target="_blank" href= "http://news.mit.edu/2017/mit-students-hack-assistive-technology-solutions-for-local-clients-0612">MIT News on ATHack2017</a>, <a target="_blank" href= "http://newsoffice.mit.edu/2015/beaver-works-hosts-assistive-technologies-hackathon-0316">MIT News on ATHack2015</a>, <a href="http://www.ll.mit.edu/news/students-build-assistive-technologies-for-Boston-residents-in-need.html">An article from the MIT Lincoln Lab</a>, <a href="http://www.eecs.mit.edu/news-events/media/continuing-legacy-assistive-technologies-mit">Continuing the Legacy: Assistive Technology at MIT</a>, <a target="_blank" href= "http://www.perkins.org/stories/news/from-problem-to-solution-in-just-nine-hours">Perkins on ATHack2015</a></p>
-							<p>Interested in sponsoring, getting involved, or learning about past projects? Check out the group's page below.</p>
-							
-
-							<div style="text-align: center">
-								<ul class="actions vertical">
-									<li><a href="http://assistivetech.mit.edu/" class="button">MIT ATHack Website</a></li>
-								</ul>
-								<!-- <img src="images/ath_bck.png" alt="" style="width: 35%"/> -->
-							</div>
-
-
-						</div>
-
-					</section>
-
-
-				<!-- Five -->
-
-					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="radio">
-						<div class="content">
-							<h2>Radio Shows</h2>
-
-							<h3>Post-It Wall</h3>
-							<p><i>"If you could leave one piece of advice behind for the world to hear, what would it be?"</i></p>
-
-							<p>Sample archives:
+							<p>I enjoy learning and singing Carnatic music and lighter forms of Indian music, as well as playing keys, harmonium, naal, and dholak.  I also enjoy dabbling in song writing, music production, and mixing and mastering in my spare time.  Some performances and recordings across genres: <a href="https://www.youtube.com/watch?v=ltvEgXS2AMg&ab_channel=IshwaryaAnanthabhotla">Sruthi Laya TCD 2014</a>, <a href="https://www.youtube.com/watch?v=813otvGqGqw">MIT C-Show 2016</a>, <a href="https://www.youtube.com/watch?v=SMNMDKv45S4&ab_channel=MITOhms">Someone Like You (Arr.) 2015</a>. I also love writing short stories and poetry; some of my writing was awarded an <a href="https://cmsw.mit.edu/publications/ilona-karmel-writing-prizes/winners/">MIT Karmel Prize</a>, and I've written a few plays (<a target="_blank" href= "https://drive.google.com/file/d/1xx3WlpQBXpVRSW2pTloaUz4tNwnkz04D/view?usp=drive_link">An Untimely Life</a>,
+							<a target="_blank" href= "https://drive.google.com/file/d/1k_6ays-AVx6Ppg-CLs2bVJ0qdbrdE6Yp/view?usp=sharing">A Familiar Melody</a>) that have aired on my WMBR production, "The Daydream Company."  You can sample some content from my days as a radio host below. </p>
+	
+							Post-It Wall: <i>"If you could leave one piece of advice behind for the world to hear, what would it be?"</i>
 
 							</br> <a target="_blank" href= "audio/Post-It_Wall_Neil.mp3">Episode 3 - Guest: Neil Gaikwad, April 5th, 2017 </a>
 
@@ -208,13 +404,10 @@
 
 							</br> <a target="_blank" href= "https://dl.dropbox.com/s/z82zsdbug1r06zd/Post-It_Wall_Liz.mp3?raw=1">Episode 12 - Guest: Elizabeth Devine, 
 							September 20th, 2017 </a>
-							</p>
 
-							<h3>Of Moments and Melodies</h3>
-							<p><i>"A whirlwind tour of the tunes and tales of the Indian sub-continent."</i></p>
+
+							</br></br>Of Moments and Melodies: <i>"A whirlwind tour of the tunes and tales of the Indian sub-continent."</i>
 							
-
-							<p>Sample archives:
 
 							</br> <a target="_blank" href= "https://dl.dropbox.com/s/pd1y2j558ttdr3w/Of_Moments_and_Melodies____3_21_18_7_58_PM.mp3?raw=1">Episode 2 - March 21nd, 2018 </a>
 
@@ -225,28 +418,17 @@
 							</br> <a target="_blank" href= "https://dl.dropbox.com/s/zmjnltpoe5pikx9/Of_Moments_and_Melodies____5_2_18_7_58_PM.mp3?raw=1">Episode 5 - May 2nd, 2018 </a>
 
 							</br> <a target="_blank" href= "https://dl.dropbox.com/s/l7swgquvyem4t9q/Of_Moments_and_Melodies____5_16_18_7_58_PM.mp3?raw=1">Episode 6 - May 16th, 2018 </a>
-							</p>
-
-
-							<h3>The Daydream Company</h3>
-							<p><i>"Celebrating the spirit of radio theater with enactments of classic plays, original scripts, and a smattering of show tunes!"</i></p>
 							
 
-							<p>Sample scripts: 
-
-							</br> <a target="_blank" href= "https://drive.google.com/file/d/1xx3WlpQBXpVRSW2pTloaUz4tNwnkz04D/view?usp=drive_link">An Untimely Life</a>
-
-							</br> <a target="_blank" href= "https://drive.google.com/file/d/1k_6ays-AVx6Ppg-CLs2bVJ0qdbrdE6Yp/view?usp=sharing">A Familiar Melody</a>
-							</p>
 
 
+				<!-- Five -->
 
+					
 
+				<!-- Five -->
 
-						</div>
-
-					</section>
-
+				
 
 
 				
@@ -286,7 +468,7 @@
 								<li><a href="https://www.linkedin.com/in/ishwarya-ananthabhotla-50a25515b/" class="icon style2 fa-linkedin"><span class="label">Facebook</span></a></li>
 								<li><a href="mailto:ishwarya@media.mit.edu" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
 							</ul>
-							<p>&copy; Ishwarya Ananthabhotla 2024. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+							<p>&copy; Ishwarya Ananthabhotla 2025. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 						</div>
 					</footer>
 
@@ -299,6 +481,54 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				// Enhanced sticky navigation functionality
+				window.addEventListener('scroll', function() {
+					const nav = document.getElementById('stickyNav');
+					const navLinks = document.querySelectorAll('.nav-menu a');
+					const sections = document.querySelectorAll('section[id]');
+					
+					// Add scrolled class for styling
+					if (window.scrollY > 50) {
+						nav.classList.add('scrolled');
+					} else {
+						nav.classList.remove('scrolled');
+					}
+					
+					// Update active nav item based on scroll position
+					let current = '';
+					sections.forEach(section => {
+						const sectionTop = section.offsetTop - 100;
+						const sectionHeight = section.clientHeight;
+						if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+							current = section.getAttribute('id');
+						}
+					});
+					
+					navLinks.forEach(link => {
+						link.classList.remove('active');
+						if (link.getAttribute('href') === '#' + current) {
+							link.classList.add('active');
+						}
+					});
+				});
+
+				// Smooth scrolling for navigation links
+				document.querySelectorAll('.nav-menu a[href^="#"]').forEach(anchor => {
+					anchor.addEventListener('click', function (e) {
+						e.preventDefault();
+						const target = document.querySelector(this.getAttribute('href'));
+						if (target) {
+							const offsetTop = target.offsetTop - 80; // Account for sticky nav height
+							window.scrollTo({
+								top: offsetTop,
+								behavior: 'smooth'
+							});
+						}
+					});
+				});
+			</script>
 
 	</body>
 </html>
